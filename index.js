@@ -1,5 +1,5 @@
-const botconfig = require("./botconfig.json");
-const Discord = require ("Discord.js");
+const Discord = require ("discord.js");
+const prefix = `$`
 const bot = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
 
@@ -42,4 +42,4 @@ bot.on(`ready`, ()=>{
 
 
 
-  bot.login(botconfig.token)
+bot.login(process.env.BOT_TOKEN)
