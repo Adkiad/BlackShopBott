@@ -12,14 +12,14 @@ message.channel.createInvite({
   }).then(invite =>
     message.author.sendMessage(invite.url)
   )
-message.channel.send("**تم ارسال الرابط برسالة خاصة**")
-
+message.channel.send("**تم ارسال الرابط برسالة خاصة**").then(()=>{
 message.author.send(`**مدة الرابط : يـوم
 عدد استخدامات الرابط : 100**`)
 
 
-  }
-});
+  })
+}
+})
 
 
 bot.login(process.env.BOT_TOKEN)
