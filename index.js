@@ -10,7 +10,7 @@ bot.on(`ready`, ()=>{
   console.log(`----------------`);
   console.log(`Logged in as ${bot.user.tag}!`);
   bot.user.setStatus("dnd")
-  bot.user.setGame(`$bc | Vampires`, "https://www.twitch.tv/azoqzmj")
+  bot.user.setGame(`رابط | BlackShop`, "https://www.twitch.tv/azoqzmj")
 
 bot.on('message', message => {
   if (message.content.startsWith("رابط")) {
