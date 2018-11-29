@@ -4,7 +4,7 @@ bot.commands = new Discord.Collection();
 
 
 bot.on('message', message => {
-  if (message.content.startsWith("-رابط")) {
+  if (message.content.startsWith("رابط")) {
     if(!message.member)
     
 message.channel.createInvite({
