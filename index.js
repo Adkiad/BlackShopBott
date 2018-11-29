@@ -31,5 +31,5 @@ message.author.send(`**مدة الرابط : يـوم
 
   }
 });
-
+})
 bot.login(process.env.BOT_TOKEN)
