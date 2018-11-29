@@ -21,8 +21,17 @@ message.channel.send("**تم ارسال الرابط برسالة خاصة**")
 message.author.send(`**مدة الرابط : يـوم
 عدد استخدامات الرابط : 100**`)
   }
+  bot.on(`ready`, () =>{
+    console.log(`Bot Launched...`)
+
+  });
+
+  bot.on(`guildMemberAdd`, member => {
+    console.log(`User ` + member.user + `has joined the server!` )
+
+    var role = member.guild.roles.find(`name`, `Member`)
+
+    member.addRole(role)
+  });
 })
-  
-
-
 bot.login(process.env.BOT_TOKEN)
