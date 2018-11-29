@@ -11,7 +11,7 @@ bot.on(`ready`, ()=>{
   console.log(`Logged in as ${bot.user.tag}!`);
   bot.user.setStatus("dnd")
   bot.user.setGame(`رابط | BlackShop`, "https://www.twitch.tv/azoqzmj")
-
+})
 bot.on('message', message => {
   if (message.content.startsWith("رابط")) {
     if(!message.member)
@@ -31,5 +31,5 @@ message.author.send(`**مدة الرابط : يـوم
 
   }
 });
-})
+
 bot.login(process.env.BOT_TOKEN)
