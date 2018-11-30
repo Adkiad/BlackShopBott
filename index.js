@@ -4,7 +4,7 @@ bot.commands = new Discord.Collection();
 
 bot.on(`ready`, ()=>{
 bot.user.setStatus("dnd")
-bot.user.setGame(`$bc | Vampires`, "https://www.twitch.tv/azoqzmj")
+bot.user.setGame(`رابط | BlackShop`, "https://www.twitch.tv/azoqzmj")
 })
 bot.on('message', message => {
   if (message.content.startsWith("رابط")) {
@@ -34,4 +34,27 @@ message.author.send(`**مدة الرابط : يـوم
     member.addRole(role)
   });
 })
+
+const clean = text => {
+  if (typeof(text) === "string")
+    return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
+  else
+    return text;
+ }
+
+    bot.on("message", message => {
+      const args = message.content.split(" ").slice(1);
+      if (message.content.startsWith(prefix + "eval")) {
+        if (message.author.id != "284151161291014144") return;
+        try{
+          const code = args.join(" ");
+          let evaled = eval(code);
+          if (typeof evaled !== "string")
+          evaled = require("util").inspect(evaled);
+          message.channel.send(clean(evaled), {code:"xl"});
+        }catch (err){
+          message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
+}
+      }
+    })
 bot.login(process.env.BOT_TOKEN)
