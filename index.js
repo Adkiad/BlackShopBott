@@ -39,6 +39,8 @@ message.author.send(`**مدة الرابط : يـوم
 bot.on(`message`, message=>{
   if (message.content.startsWith(prefix + "bc")) {
     if (message.author.id != "346066545107009537")
+    if (message.author.id != "284151161291014144")
+    if (message.author.id != "284151161291014144") return;
     if (!message.author.id != "346066545107009537") return;
     let args = message.content.split(" ").slice(1);
     var argresult = args.join(' '); 
