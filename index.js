@@ -59,7 +59,7 @@ const clean = text => {
   }
 })
 bot.on('message', message => {
-  if (message.content.split(' ')[0] == '%k')
+  if (message.content.split(' ')[0] == '$bc')
      message.guild.members.forEach( member => {
        if (!message.member.hasPermission("ADMINISTRATOR"))  return;
 
