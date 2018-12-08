@@ -1,7 +1,8 @@
 const Discord = require ("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
 const prefix = "$"
-const Canvas = require('./jimp-canvas')
+const jimp = require('jimp');
+const Canvas = require('canvas');
 bot.commands = new Discord.Collection();
 
 bot.on(`ready`, ()=>{
@@ -77,9 +78,10 @@ const clean = text => {
 })
 
 
+
 bot.on('guildMemberAdd', member => {
 
-  const welcomer =  member.guild.channels.find(c => c.id == '429878087837024256');
+  const welcomer =  member.guild.channels.find(c => c.id == '515164892223897601');
 
   const w = ['./welcome.png'];
 
@@ -162,4 +164,8 @@ bot.on('guildMemberAdd', member => {
  });                    
 
 });
+
+
+
+
 bot.login(process.env.BOT_TOKEN)
