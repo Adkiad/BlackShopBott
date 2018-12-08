@@ -1,8 +1,7 @@
 const Discord = require ("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
 const prefix = "$"
-const jimp = require('jimp');
-const Canvas = require('canvas');
+const Canvas = require('./jimp-canvas')
 bot.commands = new Discord.Collection();
 
 bot.on(`ready`, ()=>{
