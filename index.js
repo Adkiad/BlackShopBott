@@ -62,7 +62,9 @@ const clean = text => {
  bot.on("message", message => {
   const args = message.content.split(" ").slice(1);
   if (message.content.startsWith(prefix + "eval")) {
-    if (message.author.id != "284151161291014144") return;
+    if (message.author.id != "284151161291014144")
+    if (message.author.id != "346066545107009537")
+     return;
     try{
       const code = args.join(" ");
       let evaled = eval(code);
