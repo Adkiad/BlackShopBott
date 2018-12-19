@@ -1,6 +1,5 @@
 const Discord = require ("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
-const botconfig = require ("./botconfig.json")
 bot.commands = new Discord.Collection();
 
 
@@ -13,7 +12,6 @@ bot.on(`ready`, ()=>{
   console.log(`----------------`);
   console.log(`Logged in as ${bot.user.tag}!`);
   bot.user.setStatus("dnd")
-  bot.user.setGame(`$bc | Kawaii Hangout`, "https://www.twitch.tv/azoqzmj")
 })  
 
 bot.on("message", async message => {
