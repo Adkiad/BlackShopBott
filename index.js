@@ -1,6 +1,5 @@
 const Discord = require ("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
-const botconfig = require ("./botconfig.json")
 const prefix = "$"
 bot.commands = new Discord.Collection();
 
@@ -30,19 +29,26 @@ bot.on("message", async message => {
   if(commandfile) commandfile.run(bot,message,args);
 
 
-  if (message.content.startsWith(prefix + "bc")) {
+	if(cmd === prefix + 'bc') {
+    var argsBC = message.content.split(' ').slice(1).join(' ');
+    var x = 0;
     if (message.author.id != "284151161291014144")
     if (message.author.id != "508002163457392660") return message.reply("ولدددد م عندك برمششششن")
-    var argsBC = message.content.split(" ").slice(1).join(' ');
-    if(!argsBC) return err(message, "Type the message to send.");
-    message.guild.members.filter(m => !m.user.bot).forEach(m => {
-      m.send(argsBC.replace(/muser/g, m)).catch(err => console.log(err));
-      message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : عدد الاعضاء المستلمين`)
+    if(!argsBC) return err(message, "Type the message to send it.");
+    message.delete();
+    
+
+    message.channel.send("انتظر قليلاً").then(message1 => {
+      message.guild.members.filter(m => !m.user.bot).forEach(m => {
+        m.send(argsBC.replace(/muser/g, m)).catch(err => console.log(err));
+      });
+      setTimeout(() => {
+        message1.edit(`تم ارسال الرسالة الى: ${message.guild.members.filter(m => !m.user.bot).size} عضو`, "")
         
-      message.delete();
-				});
-      }
-    })
+        });
+      }, 20000);
+    }
+  })
     const clean = text => {
       if (typeof(text) === "string")
         return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
@@ -53,7 +59,7 @@ bot.on("message", async message => {
       const args = message.content.split(" ").slice(1);
       if (message.content.startsWith(prefix + "eval")) {
         if (message.author.id != "284151161291014144")
-        if (message.author.id != "508002163457392660") return;
+        if (message.author.id != "508002163457392660") return message.reply("ولدددد م عندك برمششششن")
         try{
           const code = args.join(" ");
           let evaled = eval(code);
@@ -65,5 +71,6 @@ bot.on("message", async message => {
     }
       }
     })
+  
 
 bot.login(process.env.BOT_TOKEN)
