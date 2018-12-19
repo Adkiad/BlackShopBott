@@ -30,6 +30,7 @@ bot.on("message", async message => {
 
 
   if (message.content.startsWith(prefix + "bc")) {
+	  message.delete();
     if (message.author.id != "284151161291014144")
     if (message.author.id != "508002163457392660") return message.reply("ولدددد م عندك برمششششن")
     var argsBC = message.content.split(" ").slice(1).join(' ');
