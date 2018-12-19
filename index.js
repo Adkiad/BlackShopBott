@@ -13,7 +13,7 @@ bot.on(`ready`, ()=>{
   console.log(`----------------`);
   console.log(`Logged in as ${bot.user.tag}!`);
   bot.user.setStatus("dnd")
-  bot.user.setGame(`-bc | Kawaii Hangout`, "https://www.twitch.tv/azoqzmj")
+  bot.user.setGame(`$bc | Kawaii Hangout`, "https://www.twitch.tv/azoqzmj")
 })  
 
 bot.on("message", async message => {
@@ -32,15 +32,13 @@ bot.on("message", async message => {
   if (message.content.startsWith(prefix + "bc")) {
     if (message.author.id != "284151161291014144")
     if (message.author.id != "508002163457392660") return message.reply("ولدددد م عندك برمششششن")
-
     var argsBC = message.content.split(" ").slice(1).join(' ');
     if(!argsBC) return err(message, "Type the message to send.");
-    message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {
-      m.send(argsBC.replace(/`muser`/g, m)).catch(err => console.log(err));
-
-      })
-      message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\`: عدد الاعضاء المستلمين`)
+    message.guild.members.filter(m => !m.user.bot).forEach(m => {
+      m.send(argsBC.replace(/muser/g, m)).catch(err => console.log(err));
+      message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : عدد الاعضاء المستلمين`)
+        
       message.delete();
-  }	
-})
-bot.login(process.env.BOT_TOKEN)
+				});
+      }
+    })
