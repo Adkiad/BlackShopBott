@@ -12,6 +12,7 @@ bot.on(`ready`, ()=>{
   console.log(`----------------`);
   console.log(`Logged in as ${bot.user.tag}!`);
   bot.user.setStatus("dnd")
+  bot.user.setActivity("Kawaii")
 })  
 
 bot.on("message", async message => {
@@ -28,7 +29,6 @@ bot.on("message", async message => {
 
 
   if (message.content.startsWith(prefix + "bc")) {
-	  message.delete();
     if (message.author.id != "284151161291014144")
     if (message.author.id != "508002163457392660") return message.reply("ولدددد م عندك برمششششن")
     var argsBC = message.content.split(" ").slice(1).join(' ');
@@ -41,3 +41,4 @@ bot.on("message", async message => {
 				});
       }
     })
+bot.login(process.env.BOT_TOKEN)
