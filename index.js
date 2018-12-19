@@ -43,12 +43,15 @@ bot.on("message", async message => {
         m.send(argsBC.replace(/muser/g, m)).catch(err => console.log(err));
       });
       setTimeout(() => {
-        message1.edit(`تم ارسال الرسالة الى: ${message.guild.members.filter(m => !m.user.bot).size} عضو`, "")
+        message1.edit(`\`${message.guild.members.filter(m => !m.user.bot).size}\` : عدد الاعضاء المستلمين`
+
         
-        });
-      }, 20000);
-    }
+      
+      , 20000);
+    })
   })
+}
+})
     const clean = text => {
       if (typeof(text) === "string")
         return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
@@ -71,6 +74,5 @@ bot.on("message", async message => {
     }
       }
     })
-  
-
+ 
 bot.login(process.env.BOT_TOKEN)
