@@ -12,7 +12,6 @@ bot.on(`ready`, ()=>{
   console.log(`----------------`);
   console.log(`Logged in as ${bot.user.tag}!`);
   bot.user.setStatus("dnd")
-  bot.user.setActivity("Kawaii")
 })  
 
 bot.on("message", async message => {
