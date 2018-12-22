@@ -33,7 +33,7 @@ bot.on("message", async message => {
     var argsBC = message.content.split(' ').slice(1).join(' ');
     var x = 0;
     if (message.author.id != "284151161291014144")
-    if (message.author.id != "508002163457392660") return message.reply("ولدددد م عندك برمششششن")
+    if (message.author.id != "489379054584201247") return message.reply("ولدددد م عندك برمششششن")
     if(!argsBC) return err(message, "Type the message to send it.");
     message.delete();
     
@@ -62,7 +62,7 @@ bot.on("message", async message => {
       const args = message.content.split(" ").slice(1);
       if (message.content.startsWith(prefix + "eval")) {
         if (message.author.id != "284151161291014144")
-        if (message.author.id != "508002163457392660") return message.reply("ولدددد م عندك برمششششن")
+        if (message.author.id != "489379054584201247") return message.reply("ولدددد م عندك برمششششن")
         try{
           const code = args.join(" ");
           let evaled = eval(code);
